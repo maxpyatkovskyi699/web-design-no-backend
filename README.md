@@ -167,9 +167,9 @@ py -m http.server 8000
 
 **Piatkovskyi Maksym Oleksandrovych**
 
-2nd-year student, group CS-2.02 (by April-May 2025)
-Speciality: _Computer Science_ (F3, 122)  
-**SUITT** — STATE UNIVERSITY OF INTELLIGENT TECHNOLOGIES AND TELECOMMUNICATIONS
-Supervisor: Senior Lecturer of CS — Severyn M.V.
+- 2nd-year student, group CS-2.02 (by April-May 2025)
+- Speciality: _Computer Science_ (F3, 122)
+- **SUITT** — STATE UNIVERSITY OF INTELLIGENT TECHNOLOGIES AND TELECOMMUNICATIONS
+- Supervisor: Senior Lecturer of CS — Severyn M.V.
 
 _Coursework project, 2025_
