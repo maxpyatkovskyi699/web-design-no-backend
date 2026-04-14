@@ -20,8 +20,6 @@ A beauty salon website developed as a coursework project for the discipline _"We
 
 **Chic & Charm** is a responsive beauty salon website that allows clients to explore services, book appointments online, leave reviews, and contact the administration. All functionality is implemented in pure HTML/CSS/JavaScript with no backend — data is stored in the browser's `localStorage`.
 
-Here's the updated **About the Project** section with all 8 features listed:
-
 ---
 
 The project includes the following features:
@@ -36,8 +34,6 @@ The project includes the following features:
 8. **Support** — contact form with JS validation for submitting issues to the administration
 
 ---
-
-## You can drop this in to replace the current "About the Project" section in your `README.md`. Want me to also regenerate the full file with this update included?
 
 ## Features
 
