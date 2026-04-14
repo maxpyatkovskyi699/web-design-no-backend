@@ -169,9 +169,7 @@ let cart = [];
 let activeUser = localStorage.getItem("UserActive")
   ? JSON.parse(localStorage.getItem("UserActive"))
   : null;
-let orderCounter = localStorage.getItem(
-  `HaircutsOrderCounter_${activeUser?.id}`
-)
+let orderCounter = localStorage.getItem(`HaircutsOrderCounter_${activeUser?.id}`)
   ? parseInt(localStorage.getItem(`HaircutsOrderCounter_${activeUser?.id}`))
   : 0;
 // Додаємо лічильник загальної кількості замовлень
@@ -180,10 +178,7 @@ let totalOrderCounter = localStorage.getItem("HaircutsOrderCounterTotal")
   : 0;
 // Функція для оновлення відображення кошика
 function updateCartDisplay() {
-  cartItemCount.textContent = cart.reduce(
-    (sum, item) => sum + item.quantity,
-    0
-  );
+  cartItemCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
   cartItemsList.innerHTML = `
     <li>
       <span>№</span>
@@ -202,9 +197,7 @@ function updateCartDisplay() {
       <span>${item.title}</span>
       <span>${item.quantity}</span>
       <span>${(item.quantity * item.price).toFixed(2)} UAH</span>
-      <span><button class="remove-from-cart-button" data-product-id="${
-        item.id
-      }">Х</button></span>
+      <span><button class="remove-from-cart-button" data-product-id="${item.id}">Х</button></span>
     `;
     cartItemsList.appendChild(listItem);
     total += item.quantity * item.price;
@@ -226,7 +219,7 @@ function changeQuantity(productId, change) {
   const productCard = Array.from(productGrid.children).find(
     (card) =>
       card.querySelector(".product-title").textContent ===
-      productsData.find((p) => p.id === productId).title
+      productsData.find((p) => p.id === productId).title,
   );
   if (productCard) {
     const quantityInput = productCard.querySelector(".quantity-input");
@@ -250,8 +243,7 @@ function addToCart(productId, quantity) {
       }
       updateCartDisplay();
       const productCard = Array.from(productGrid.children).find(
-        (card) =>
-          card.querySelector(".product-title").textContent === product.title
+        (card) => card.querySelector(".product-title").textContent === product.title,
       );
       if (productCard) {
         productCard.querySelector(".quantity-input").value = "0";
@@ -283,8 +275,7 @@ function showDetails(id) {
 // Функція для обробки кліку на кнопку "Оформити замовлення"
 function handleCheckoutClick() {
   if (cart.length === 0) {
-    warningMessage.textContent =
-      "Ваш кошик порожній. Додайте послуги для оформлення замовлення.";
+    warningMessage.textContent = "Ваш кошик порожній. Додайте послуги для оформлення замовлення.";
     warningModal.style.display = "block";
     return;
   }
@@ -292,33 +283,27 @@ function handleCheckoutClick() {
 }
 
 function toggleCart() {
-  cartModal.style.display =
-    cartModal.style.display === "block" ? "none" : "block";
+  cartModal.style.display = cartModal.style.display === "block" ? "none" : "block";
 }
 
 function toggleDetailsModal() {
-  detailsModal.style.display =
-    detailsModal.style.display === "block" ? "none" : "block";
+  detailsModal.style.display = detailsModal.style.display === "block" ? "none" : "block";
 }
 
 function toggleWarningModal() {
-  warningModal.style.display =
-    warningModal.style.display === "block" ? "none" : "block";
+  warningModal.style.display = warningModal.style.display === "block" ? "none" : "block";
 }
 
 function toggleConfirmModal() {
-  confirmModal.style.display =
-    confirmModal.style.display === "block" ? "none" : "block";
+  confirmModal.style.display = confirmModal.style.display === "block" ? "none" : "block";
 }
 
 function toggleThankYouModal() {
-  thankYouModal.style.display =
-    thankYouModal.style.display === "block" ? "none" : "block";
+  thankYouModal.style.display = thankYouModal.style.display === "block" ? "none" : "block";
 }
 
 function toggleOrderHistoryModal() {
-  orderHistoryModal.style.display =
-    orderHistoryModal.style.display === "block" ? "none" : "block";
+  orderHistoryModal.style.display = orderHistoryModal.style.display === "block" ? "none" : "block";
 }
 // Функція для форматування дати
 function formatTimestamp(isoString) {
@@ -377,9 +362,7 @@ function showOrderHistory() {
   if (activeUser) {
     const existingOrders = localStorage.getItem("HaircutsOrders");
     const orderHistory = existingOrders
-      ? JSON.parse(existingOrders).filter(
-          (order) => order.userId === activeUser.id
-        )
+      ? JSON.parse(existingOrders).filter((order) => order.userId === activeUser.id)
       : [];
     // Сортуємо історію замовлень за номером у спадному порядку
     orderHistory.sort((a, b) => b.orderNumber - a.orderNumber);
@@ -390,14 +373,14 @@ function showOrderHistory() {
         const listItem = document.createElement("li");
         listItem.innerHTML = `
           <h3>Замовлення №${order.orderNumber} (Загальний №${
-          order.totalOrderNumber
-        })</h3> <p>Дата: ${formatTimestamp(order.timestamp)}</p><ul>
+            order.totalOrderNumber
+          })</h3> <p>Дата: ${formatTimestamp(order.timestamp)}</p><ul>
             ${order.items
               .map(
                 (item) =>
-                  `<li>${item.title} x ${item.quantity} - ${(
-                    item.price * item.quantity
-                  ).toFixed(2)} UAH</li>`
+                  `<li>${item.title} x ${item.quantity} - ${(item.price * item.quantity).toFixed(
+                    2,
+                  )} UAH</li>`,
               )
               .join("")} </ul>
           <p>Загальна сума: ${order.total.toFixed(2)} UAH</p>
@@ -410,8 +393,7 @@ function showOrderHistory() {
       orderHistoryModal.style.display = "block";
     }
   } else {
-    warningMessage.textContent =
-      "Будь ласка, увійдіть, щоб переглянути історію замовлень.";
+    warningMessage.textContent = "Будь ласка, увійдіть, щоб переглянути історію замовлень.";
     warningModal.style.display = "block";
   }
 }
@@ -499,28 +481,17 @@ function renderProducts() {
 }
 // Функція для ініціалізації кнопок лічильника
 function initializeQuantityControls() {
-  const quantityControls = document.querySelectorAll(
-    ".product-card .quantity-controls"
-  );
+  const quantityControls = document.querySelectorAll(".product-card .quantity-controls");
   quantityControls.forEach((controls) => {
-    const decreaseButton = controls.querySelector(
-      ".quantity-button:first-child"
-    );
-    const increaseButton = controls.querySelector(
-      ".quantity-button:last-child"
-    );
+    const decreaseButton = controls.querySelector(".quantity-button:first-child");
+    const increaseButton = controls.querySelector(".quantity-button:last-child");
     const quantityInput = controls.querySelector(".quantity-input");
     const productId = parseInt(
-      controls.closest(".product-card").querySelector(".details-button").dataset
-        .productId
+      controls.closest(".product-card").querySelector(".details-button").dataset.productId,
     );
 
-    decreaseButton.addEventListener("click", () =>
-      changeQuantity(productId, -1)
-    );
-    increaseButton.addEventListener("click", () =>
-      changeQuantity(productId, 1)
-    );
+    decreaseButton.addEventListener("click", () => changeQuantity(productId, -1));
+    increaseButton.addEventListener("click", () => changeQuantity(productId, 1));
     quantityInput.addEventListener("change", () => {});
   });
 }

@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   const weatherSpan = document.querySelector(".pre-header .weather");
-  const apiKey = "63fad3791521cac9c2c9943a476053cb";
+  const apiKey = API_KEY_WEATHER; // API_KEY
   const city = "Odesa";
   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=uk`;
 
@@ -31,5 +31,5 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   updateWeather();
-  setInterval(updateWeather, 10000); // Оновлення кожні 10 секунд
+  setInterval(updateWeather, 900000); // Оновлення кожні 15 хвилин
 });
