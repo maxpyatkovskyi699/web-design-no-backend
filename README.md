@@ -1,10 +1,6 @@
-Here is the English version of your README, with the improvements incorporated:
+## 💅 Chic & Charm — Beauty Salon Information System
 
----
-
-# 💅 Chic & Charm — Beauty Salon Information System
-
-A beauty salon website developed as a coursework project for the discipline _"Web Technologies and Web Design"_ (DUITS, 2025).
+A beauty salon website developed as a coursework project for the discipline _"Web Technologies and Web Design"_ (SUITT, 2025).
 
 ---
 
