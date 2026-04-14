@@ -18,3 +18,5 @@ npm-debug.log*
 *.suo
 *.ntvs*
 *.njsproj
+
+# ignoring sensitive information
