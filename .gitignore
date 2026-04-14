@@ -1,0 +1,21 @@
+# Секреты и ключи (Самое важное!)
+.env
+.env.local
+.env.*.local
+
+node_modules/
+dist/
+build/
+
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+*.log
+npm-debug.log*
+
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
